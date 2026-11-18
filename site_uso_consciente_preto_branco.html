@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projeto educativo sobre o uso consciente do celular no ambiente escolar.">
+  <title>Uso consciente do celular na escola | CEEP</title>
+  <style>
+    :root {
+      --navy: #252525;
+      --blue: #444444;
+      --blue-light: #f0f0f0;
+      --ink: #303030;
+      --muted: #707070;
+      --paper: #ffffff;
+      --background: #f7f7f7;
+      --line: #e5e5e5;
+      --green: #555555;
+      --orange: #555555;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--background);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      width: min(1080px, calc(100% - 40px));
+      min-height: 76px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    .brand {
+      color: var(--navy);
+      font-weight: 700;
+      font-size: .95rem;
+      letter-spacing: .1px;
+    }
+    .brand span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 400;
+      letter-spacing: .8px;
+    }
+    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    nav a {
+      color: #666666;
+      text-decoration: none;
+      font-size: .9rem;
+    }
+    nav a:hover { color: var(--blue); text-decoration: underline; }
+
+    .hero {
+      background: #eeeeee;
+      border-bottom: 1px solid #e2e2e2;
+      padding: 66px 20px;
+    }
+    .hero-inner {
+      width: min(1080px, 100%);
+      margin: auto;
+    }
+    .eyebrow {
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    h1 {
+      max-width: 720px;
+      margin: 12px 0 14px;
+      color: var(--navy);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1.12;
+      letter-spacing: -1.2px;
+    }
+    .hero p {
+      max-width: 690px;
+      margin: 0;
+      color: #666666;
+      font-size: 1.08rem;
+    }
+
+    .section {
+      width: min(1080px, calc(100% - 40px));
+      margin: auto;
+      padding: 58px 0;
+    }
+    .section-heading { max-width: 720px; margin-bottom: 25px; }
+    .tag {
+      color: var(--blue);
+      font-size: .76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .9px;
+    }
+    h2 {
+      margin: 7px 0 10px;
+      color: var(--navy);
+      font-size: clamp(1.7rem, 3vw, 2.25rem);
+      line-height: 1.25;
+    }
+    .section-heading p { margin: 0; color: var(--muted); }
+
+    .intro {
+      padding: 25px 28px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--blue);
+      border-radius: 7px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .card {
+      padding: 22px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+      background: var(--blue-light);
+      border-radius: 7px;
+      font-size: 1.35rem;
+    }
+    .card h3 { margin: 0 0 7px; color: var(--navy); font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .93rem; }
+
+    .effects {
+      background: #f1f1f1;
+      border-top: 1px solid #e4e4e4;
+      border-bottom: 1px solid #e4e4e4;
+    }
+    .effects .section { padding-top: 58px; padding-bottom: 58px; }
+    .effects .tag { color: var(--orange); }
+    .effects .card { background: #fff; }
+    .effects .icon { background: #eeeeee; }
+
+    .tips {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+    .tip {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px 18px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+    }
+    .check { color: var(--green); font-size: 1.1rem; font-weight: 700; }
+    .tip p { margin: 0; color: var(--muted); }
+
+    .quote {
+      padding: 30px;
+      background: var(--navy);
+      color: white;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .quote p {
+      max-width: 760px;
+      margin: 0 auto 8px;
+      font-size: clamp(1.2rem, 2.8vw, 1.65rem);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .quote small { color: #d7e2eb; }
+
+    footer {
+      padding: 25px 20px;
+      background: #252525;
+      color: #d6e0e8;
+      text-align: center;
+      font-size: .88rem;
+    }
+    footer p { margin: 4px 0; }
+    .top-button {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 5px;
+      background: var(--navy);
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+    }
+    .top-button.show { display: block; }
+
+    @media (max-width: 760px) {
+      .nav { align-items: flex-start; flex-direction: column; padding: 15px 0; gap: 12px; }
+      nav { gap: 13px; }
+      nav a { font-size: .84rem; }
+      .hero { padding: 52px 20px; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .tips { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .cards { grid-template-columns: 1fr; }
+      .section { padding: 45px 0; }
+      .intro, .quote { padding: 21px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        CEEP HÉLIO XAVIER DE VASCONCELOS
+        <span>PROJETO EDUCATIVO</span>
+      </div>
+      <nav aria-label="Navegação principal">
+        <a href="#tema">O tema</a>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#impactos">Impactos</a>
+        <a href="#dicas">Dicas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="eyebrow">Educação e tecnologia</span>
+        <h1>Menos distração.<br>Mais aprendizagem.</h1>
+        <p>Entenda como reduzir o uso excessivo do celular na escola pode melhorar a concentração, a convivência e o desenvolvimento dos estudantes.</p>
+      </div>
+    </section>
+
+    <section class="section" id="tema">
+      <div class="section-heading">
+        <span class="tag">01 · Entenda o assunto</span>
+        <h2>Por que falar sobre o uso do celular?</h2>
+      </div>
+      <div class="intro">
+        O celular faz parte do nosso dia a dia e também pode ser uma ferramenta útil para aprender. Porém, quando é usado em excesso durante as aulas, pode tirar a atenção dos estudantes, interromper atividades e diminuir a participação. Reduzir as distrações não significa abandonar a tecnologia, mas aprender a utilizá-la com equilíbrio e responsabilidade.
+      </div>
+    </section>
+
+    <section class="section" id="beneficios">
+      <div class="section-heading">
+        <span class="tag">02 · Lado positivo</span>
+        <h2>Benefícios de diminuir o uso do celular</h2>
+        <p>Ao deixar o aparelho de lado nos momentos de estudo, o aluno pode aproveitar melhor as aulas e desenvolver habilidades importantes.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="icon">🎯</div><h3>Mais concentração</h3><p>Menos notificações e interrupções ajudam o estudante a acompanhar as explicações e manter o foco nas tarefas.</p></article>
+        <article class="card"><div class="icon">📚</div><h3>Melhor aprendizagem</h3><p>Prestar atenção, participar e praticar os conteúdos favorece a compreensão e a construção do conhecimento.</p></article>
+        <article class="card"><div class="icon">🤝</div><h3>Mais convivência</h3><p>Conversar e realizar atividades com os colegas fortalece a comunicação, a cooperação e o respeito.</p></article>
+        <article class="card"><div class="icon">🧠</div><h3>Desenvolvimento do raciocínio</h3><p>Resolver exercícios, ler e discutir ideias estimula o pensamento crítico e a capacidade de solucionar problemas.</p></article>
+        <article class="card"><div class="icon">⏰</div><h3>Organização do tempo</h3><p>Controlar o tempo de tela ajuda a reservar momentos para estudar, descansar e realizar outras atividades.</p></article>
+        <article class="card"><div class="icon">🙋</div><h3>Mais participação</h3><p>Com menos distrações, os alunos podem fazer perguntas, tirar dúvidas e participar mais das aulas.</p></article>
+      </div>
+    </section>
+
+    <div class="effects" id="impactos">
+      <section class="section">
+        <div class="section-heading">
+          <span class="tag">03 · Pontos de atenção</span>
+          <h2>O que o uso exagerado pode afetar?</h2>
+          <p>Quando o celular ocupa o espaço de outras experiências importantes, pode trazer dificuldades para a rotina escolar e para o desenvolvimento dos alunos.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="icon">🔔</div><h3>Distração constante</h3><p>Mensagens, vídeos e redes sociais podem interromper a atenção e fazer o aluno perder partes importantes da aula.</p></article>
+          <article class="card"><div class="icon">📝</div><h3>Dificuldade nas atividades</h3><p>A falta de atenção pode atrapalhar a compreensão das orientações, a realização de tarefas e o acompanhamento dos conteúdos.</p></article>
+          <article class="card"><div class="icon">💬</div><h3>Menos interação presencial</h3><p>O uso contínuo do aparelho pode reduzir as conversas, as brincadeiras e as experiências de colaboração com outras pessoas.</p></article>
+          <article class="card"><div class="icon">📅</div><h3>Desorganização da rotina</h3><p>Passar muito tempo no celular pode dificultar a divisão do tempo entre estudos, sono, lazer e responsabilidades.</p></article>
+          <article class="card"><div class="icon">💡</div><h3>Menos oportunidades de aprender</h3><p>Quando a tela substitui a leitura, a prática e a participação, o estudante aproveita menos oportunidades de desenvolver habilidades.</p></article>
+          <article class="card"><div class="icon">🌱</div><h3>Desenvolvimento social</h3><p>O equilíbrio entre atividades digitais e presenciais é importante para praticar a escuta, o diálogo e o trabalho em equipe.</p></article>
+        </div>
+      </section>
+    </div>
+
+    <section class="section" id="dicas">
+      <div class="section-heading">
+        <span class="tag">04 · Pequenas atitudes</span>
+        <h2>Como usar a tecnologia com equilíbrio?</h2>
+        <p>Algumas atitudes simples ajudam a aproveitar melhor o tempo na escola.</p>
+      </div>
+      <div class="tips">
+        <div class="tip"><span class="check">✓</span><p>Deixe o celular guardado durante explicações e atividades, conforme as regras da escola.</p></div>
+        <div class="tip"><span class="check">✓</span><p>Use o aparelho para estudar quando o professor orientar ou quando a atividade exigir.</p></div>
+        <div class="tip"><span class="check">✓</span><p>Evite notificações e redes sociais nos horários reservados à aprendizagem.</p></div>
+        <div class="tip"><span class="check">✓</span><p>Valorize conversas, trabalhos em grupo, leitura e atividades fora das telas.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="quote">
+        <p>“A tecnologia deve ser uma ferramenta para aprender, e não uma distração que nos impede de aprender.”</p>
+        <small>Use com consciência. Aprenda com atenção.</small>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>CEEP HÉLIO XAVIER DE VASCONCELOS</strong></p>
+    <p>Projeto educativo · Uso consciente do celular na escola</p>
+    <p>Aprender também é saber quando desconectar.</p>
+  </footer>
+
+  <button class="top-button" id="topButton" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+
+  <script>
+    const topButton = document.getElementById("topButton");
+
+    window.addEventListener("scroll", () => {
+      topButton.classList.toggle("show", window.scrollY > 350);
+    });
+
+    topButton.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
